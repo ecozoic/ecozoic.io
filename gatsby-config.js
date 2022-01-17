@@ -14,7 +14,9 @@ if (process.env.CONTENTFUL_HOST) {
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.ecozoic.io',
+    title: 'ecozoic.io',
+    description: 'a place about things',
+    siteUrl: process.env.SITE_URL,
   },
   plugins: [
     'gatsby-plugin-sitemap',
@@ -23,6 +25,19 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-images',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-prismjs',
+          'gatsby-remark-responsive-iframe',
+        ],
+      },
+    },
+    'gatsby-plugin-mdx',
     process.env.CONTENTFUL_HOST
       ? false
       : {
