@@ -31,6 +31,7 @@
     "gatsby-remark-autolink-headers": "^5.5.0",
     "gatsby-remark-copy-linked-files": "^5.5.0",
     "gatsby-remark-images": "^6.5.2",
+    "gatsby-remark-images-contentful": "^5.5.0",
     "gatsby-remark-prismjs": "^6.5.0",
     "gatsby-remark-responsive-iframe": "^5.5.0",
     "gatsby-source-contentful": "^7.3.1",
