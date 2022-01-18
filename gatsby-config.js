@@ -19,13 +19,8 @@ module.exports = {
     siteUrl: process.env.SITE_URL,
   },
   plugins: [
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-emotion',
-    {
+    'gatsby-transformer-remark',
+    /*{
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
@@ -38,7 +33,17 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-mdx',
+    */
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-source-contentful',
+      options: contentfulConfig,
+    },
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-emotion',
     process.env.CONTENTFUL_HOST
       ? false
       : {
@@ -47,19 +52,5 @@ module.exports = {
             trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
           },
         },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'src',
-        path: `${__dirname}/src/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-contentful',
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
   ].filter(Boolean),
 };
