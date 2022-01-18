@@ -19,21 +19,22 @@ module.exports = {
     siteUrl: process.env.SITE_URL,
   },
   plugins: [
-    'gatsby-transformer-remark',
-    /*{
+    //'gatsby-transformer-remark',
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          /*
           'gatsby-remark-images',
           'gatsby-remark-images-contentful',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-autolink-headers',
           'gatsby-remark-prismjs',
           'gatsby-remark-responsive-iframe',
+          */
         ],
       },
     },
-    */
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-image',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const BlogPostTemplate = (props) => {
   const post = props.data.contentfulBlogPost;
@@ -7,6 +8,7 @@ const BlogPostTemplate = (props) => {
   return (
     <div>
       <h1>{post.title}</h1>
+      <GatsbyImage image={post.image.gatsbyImageData} />
       <h2>{post.subtitle}</h2>
       <div
         dangerouslySetInnerHTML={{
@@ -28,6 +30,9 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      image {
+        gatsbyImageData(layout: FIXED, placeholder: BLURRED, width: 640)
       }
     }
   }
