@@ -24,14 +24,9 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          /*
-          'gatsby-remark-images',
           'gatsby-remark-images-contentful',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-autolink-headers',
-          'gatsby-remark-prismjs',
           'gatsby-remark-responsive-iframe',
-          */
+          'gatsby-remark-prismjs',
         ],
       },
     },
