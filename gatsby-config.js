@@ -19,7 +19,6 @@ module.exports = {
     siteUrl: process.env.SITE_URL,
   },
   plugins: [
-    //'gatsby-transformer-remark',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
