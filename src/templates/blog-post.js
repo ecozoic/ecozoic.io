@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
+import Container from '../components/container';
 import Layout from '../components/layout';
 
 const BlogPostTemplate = (props) => {
@@ -9,14 +10,16 @@ const BlogPostTemplate = (props) => {
 
   return (
     <Layout>
-      <h1>{post.title}</h1>
-      <GatsbyImage image={post.image.gatsbyImageData} />
-      <h2>{post.subtitle}</h2>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: post.content?.childMarkdownRemark?.html,
-        }}
-      ></div>
+      <Container>
+        <h1>{post.title}</h1>
+        <GatsbyImage image={post.image.gatsbyImageData} />
+        <h2>{post.subtitle}</h2>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: post.content?.childMarkdownRemark?.html,
+          }}
+        ></div>
+      </Container>
     </Layout>
   );
 };

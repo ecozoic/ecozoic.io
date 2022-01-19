@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
 
-const Navbar = () => (
+const Header = () => (
   <header
     css={css`
       color: #ffffff;
@@ -15,4 +15,4 @@ const Navbar = () => (
   </header>
 );
 
-export default Navbar;
+export default Header;

@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 const IndexPage = () => {
   return (
     <Layout>
-      <p>COMING SOON</p>
+      <div>COMING SOON</div>
     </Layout>
   );
 };
