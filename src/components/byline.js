@@ -5,11 +5,12 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 const Byline = ({ author, avatar, timestamp }) => (
   <div
     css={css`
+      align-items: center;
       color: #727275;
+      display: flex;
       font-size: 0.8em;
     `}
   >
-    By{' '}
     <span>
       <GatsbyImage
         image={avatar}
@@ -18,7 +19,29 @@ const Byline = ({ author, avatar, timestamp }) => (
         `}
       />
     </span>
-    <span>{author}</span> | <span>{timestamp}</span>
+    <span>{author}</span>
+    <span
+      css={css`
+        :before {
+          border-left: 1px solid;
+          content: '';
+          display: inline-block;
+          height: 1.1em;
+          margin: 0 0.4em;
+          vertical-align: middle;
+          width: 2px;
+        }
+      `}
+    >
+      {new Date(timestamp).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        timeZoneName: 'short',
+      })}
+    </span>
   </div>
 );
 

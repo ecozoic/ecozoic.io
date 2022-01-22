@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { css } from '@emotion/react';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
@@ -14,15 +15,25 @@ const BlogPostTemplate = (props) => {
   return (
     <Layout>
       <Container>
-        <article>
-          <Title>{post.title}</Title>
-          <Subtitle>{post.subtitle}</Subtitle>
+        <article
+          css={css`
+            margin-bottom: 1.2rem;
+          `}
+        >
+          <div
+            css={css`
+              margin-bottom: 1.2rem;
+            `}
+          >
+            <Title>{post.title}</Title>
+            <Subtitle>{post.subtitle}</Subtitle>
+            <Byline
+              author={post.author.name}
+              avatar={post.author.avatar.gatsbyImageData}
+              timestamp={post.updatedAt}
+            />
+          </div>
           <GatsbyImage image={post.image.gatsbyImageData} />
-          <Byline
-            author={post.author.name}
-            avatar={post.author.avatar.gatsbyImageData}
-            timestamp={post.updatedAt}
-          />
           <div
             dangerouslySetInnerHTML={{
               __html: post.content?.childMarkdownRemark?.html,

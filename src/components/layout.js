@@ -15,15 +15,17 @@ const Layout = ({ children }) => (
       styles={css`
         html {
           box-sizing: border-box;
+          font-size: 19px;
         }
         *,
         *:before,
         *:after {
           box-sizing: inherit;
-        }
-        body {
           margin: 0;
           padding: 0;
+        }
+        p {
+          margin-bottom: 1.2rem;
         }
       `}
     />
