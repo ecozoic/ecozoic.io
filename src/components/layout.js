@@ -23,8 +23,20 @@ const Layout = ({ children }) => (
           box-sizing: inherit;
           margin: 0;
           padding: 0;
+          text-decoration: inherit;
         }
         p {
+          margin-bottom: 1.2rem;
+        }
+        a {
+          border-bottom: 1px solid #da0050;
+          color: #da0050;
+          :hover {
+            border-bottom-color: transparent;
+            color: #a7003d;
+          }
+        }
+        .gatsby-highlight {
           margin-bottom: 1.2rem;
         }
       `}

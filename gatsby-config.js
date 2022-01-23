@@ -23,8 +23,14 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-images-contentful',
-          'gatsby-remark-responsive-iframe',
+          {
+            resolve: 'gatsby-remark-images-contentful',
+            options: { linkImagesToOriginal: false, maxWidth: 1100 },
+          },
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
+            options: { wrapperStyle: 'margin-bottom: 1.2rem;' },
+          },
           'gatsby-remark-prismjs',
         ],
       },

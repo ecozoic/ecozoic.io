@@ -33,7 +33,12 @@ const BlogPostTemplate = (props) => {
               timestamp={post.updatedAt}
             />
           </div>
-          <GatsbyImage image={post.image.gatsbyImageData} />
+          <GatsbyImage
+            css={css`
+              margin-bottom: 32px;
+            `}
+            image={post.image.gatsbyImageData}
+          />
           <div
             dangerouslySetInnerHTML={{
               __html: post.content?.childMarkdownRemark?.html,
@@ -71,7 +76,7 @@ export const pageQuery = graphql`
         }
       }
       image {
-        gatsbyImageData(layout: FIXED, placeholder: BLURRED, width: 640)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1100)
       }
     }
   }

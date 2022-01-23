@@ -16,6 +16,7 @@ const Byline = ({ author, avatar, timestamp }) => (
         image={avatar}
         css={css`
           display: inline-block;
+          margin-right: 0.4em;
         `}
       />
     </span>
