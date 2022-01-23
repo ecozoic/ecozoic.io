@@ -11,10 +11,17 @@ const Footer = () => (
       width: 100%;
       z-index: 50000;
       background-color: #32283c;
-      padding-top: 16px;
     `}
   >
-    <Container>ecozoic.io</Container>
+    <Container>
+      <div
+        css={css`
+          padding: 16px 16px 0;
+        `}
+      >
+        ecozoic.io
+      </div>
+    </Container>
   </footer>
 );
 

@@ -9,6 +9,7 @@ const Byline = ({ author, avatar, timestamp }) => (
       color: #727275;
       display: flex;
       font-size: 0.8em;
+      font-weight: 400;
     `}
   >
     <span>

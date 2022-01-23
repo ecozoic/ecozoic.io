@@ -1,1 +1,2 @@
-require('prismjs/themes/prism-tomorrow.min.css');
+import '@fontsource/inter';
+import 'prismjs/themes/prism-tomorrow.min.css';

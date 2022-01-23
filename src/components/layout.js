@@ -25,12 +25,17 @@ const Layout = ({ children }) => (
           padding: 0;
           text-decoration: inherit;
         }
+        body {
+          font-family: 'Inter';
+          line-height: 1.6;
+        }
         p {
           margin-bottom: 1.2rem;
         }
         a {
           border-bottom: 1px solid #da0050;
           color: #da0050;
+          transition: color 0.1s;
           :hover {
             border-bottom-color: transparent;
             color: #a7003d;

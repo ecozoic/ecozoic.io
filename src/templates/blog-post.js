@@ -41,6 +41,9 @@ const BlogPostTemplate = (props) => {
             image={post.image.gatsbyImageData}
           />
           <div
+            css={css`
+              font-weight: 400;
+            `}
             dangerouslySetInnerHTML={{
               __html: post.content?.childMarkdownRemark?.html,
             }}
