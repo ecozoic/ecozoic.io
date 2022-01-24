@@ -19,6 +19,7 @@ const Layout = ({ children }) => (
             background-color: ${isDarkMode
               ? themes.dark.backgroundColor
               : themes.light.backgroundColor};
+            transition: 1s background-color ease;
           `}
         >
           <GlobalStyles />
