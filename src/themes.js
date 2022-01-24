@@ -13,6 +13,7 @@ const theme = {
     secondaryTextColor: '#727275',
     primaryColor: '#da0050',
     secondaryColor: '#32283c',
+    primaryVariantColor: '#8e2b88',
   },
 };
 

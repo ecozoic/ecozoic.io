@@ -7,7 +7,7 @@ const Subtitle = ({ children }) => {
   return (
     <p
       css={css`
-        color: ${theme.dark.secondaryTextColor};
+        color: ${theme.secondaryTextColor};
         font-size: 1.45em;
         font-style: italic;
         font-weight: 400;

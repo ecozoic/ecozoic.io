@@ -9,12 +9,12 @@ const Footer = () => {
   return (
     <footer
       css={css`
-        border-top: 1px solid ${theme.dark.secondaryColor};
-        color: ${theme.dark.textColor};
+        border-top: 1px solid ${theme.secondaryColor};
+        color: ${theme.textColor};
         height: 80px;
         width: 100%;
         z-index: 50000;
-        background-color: ${theme.dark.primaryColor};
+        background-color: ${theme.primaryColor};
       `}
     >
       <Container>

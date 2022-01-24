@@ -9,7 +9,7 @@ const Byline = ({ author, avatar, timestamp }) => {
     <div
       css={css`
         align-items: center;
-        color: ${theme.dark.secondaryTextColor};
+        color: ${theme.secondaryTextColor};
         display: flex;
         font-size: 0.8em;
         font-weight: 400;

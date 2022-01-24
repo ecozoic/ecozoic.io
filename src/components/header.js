@@ -1,22 +1,24 @@
 import * as React from 'react';
 import { css, useTheme } from '@emotion/react';
 
+import DarkModeToggle from './dark-mode-toggle';
+
 const Header = () => {
   const theme = useTheme();
 
   return (
     <header
       css={css`
-        border-bottom: 1px solid ${theme.dark.secondaryColor};
-        color: ${theme.dark.textColor};
+        border-bottom: 1px solid ${theme.secondaryColor};
+        color: ${theme.textColor};
         display: flex;
         height: 80px;
         width: 100%;
         z-index: 50000;
         background: linear-gradient(
           45deg,
-          ${theme.dark.primaryColor},
-          ${theme.dark.primaryVariantColor}
+          ${theme.primaryColor},
+          ${theme.primaryVariantColor}
         );
       `}
     >
@@ -49,6 +51,18 @@ const Header = () => {
           <li>code</li>
         </ul>
       </nav>
+      <div
+        css={css`
+          flex-grow: 1;
+        `}
+      ></div>
+      <div
+        css={css`
+          margin-right: 16px;
+        `}
+      >
+        <DarkModeToggle />
+      </div>
     </header>
   );
 };

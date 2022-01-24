@@ -7,7 +7,7 @@ const Title = ({ children }) => {
   return (
     <h1
       css={css`
-        color: ${theme.dark.textColor};
+        color: ${theme.textColor};
         font-size: 3em;
         font-weight: 700;
         line-height: 1.15;
