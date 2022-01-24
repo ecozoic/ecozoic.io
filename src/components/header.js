@@ -1,48 +1,56 @@
 import * as React from 'react';
-import { css } from '@emotion/react';
+import { css, useTheme } from '@emotion/react';
 
-const Header = () => (
-  <header
-    css={css`
-      border-color: #ccc;
-      color: #ffffff;
-      display: flex;
-      height: 80px;
-      width: 100%;
-      z-index: 50000;
-      background: linear-gradient(45deg, #da0050, #8e2b88);
-    `}
-  >
-    <div
+const Header = () => {
+  const theme = useTheme();
+
+  return (
+    <header
       css={css`
-        line-height: 80px;
-        margin-left: 16px;
+        border-bottom: 1px solid ${theme.dark.secondaryColor};
+        color: ${theme.dark.textColor};
+        display: flex;
+        height: 80px;
+        width: 100%;
+        z-index: 50000;
+        background: linear-gradient(
+          45deg,
+          ${theme.dark.primaryColor},
+          ${theme.dark.primaryVariantColor}
+        );
       `}
     >
-      ecozoic.io
-    </div>
-    <nav
-      css={css`
-        padding-left: 32px;
-      `}
-    >
-      <ul
+      <div
         css={css`
-          display: flex;
-          list-style-type: none;
-
-          li {
-            line-height: 80px;
-            padding: 0 12px;
-          }
+          line-height: 80px;
+          margin-left: 16px;
         `}
       >
-        <li>watch</li>
-        <li>play</li>
-        <li>code</li>
-      </ul>
-    </nav>
-  </header>
-);
+        ecozoic.io
+      </div>
+      <nav
+        css={css`
+          padding-left: 32px;
+        `}
+      >
+        <ul
+          css={css`
+            display: flex;
+            list-style-type: none;
+
+            li {
+              line-height: 80px;
+              padding: 0 12px;
+            }
+          `}
+        >
+          <li>watch</li>
+          <li>play</li>
+          <li>code</li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
 export default Header;

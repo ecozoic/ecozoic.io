@@ -17,7 +17,7 @@ const BlogPostTemplate = (props) => {
       <Container>
         <article
           css={css`
-            margin-bottom: 1.2rem;
+            margin-bottom: 4rem;
             padding: 16px 16px 0;
           `}
         >
