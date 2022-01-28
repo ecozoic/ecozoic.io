@@ -1,14 +1,20 @@
 import * as React from 'react';
 import { useState, useCallback } from 'react';
 
+import useLocalStorage from '../hooks/useLocalStorage';
+
 import DarkModeContext from './DarkModeContext';
 
 const DarkModeContextProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const toggleDarkMode = useCallback(
-    () => setIsDarkMode(!isDarkMode),
-    [isDarkMode]
+  const [darkModeSetting, setDarkModeSetting] = useLocalStorage(
+    'dark-mode',
+    true
   );
+  const [isDarkMode, setIsDarkMode] = useState(darkModeSetting);
+  const toggleDarkMode = useCallback(() => {
+    setIsDarkMode(!isDarkMode);
+    setDarkModeSetting(!isDarkMode);
+  }, [isDarkMode, setDarkModeSetting]);
 
   return (
     <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
