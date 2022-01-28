@@ -39,6 +39,10 @@ const GlobalStyles = () => {
         .gatsby-highlight {
           margin-bottom: 1.2rem;
         }
+        div,
+        li {
+          color: ${theme.textColor};
+        }
       `}
     />
   );
