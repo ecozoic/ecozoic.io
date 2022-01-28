@@ -23,7 +23,9 @@ const Footer = () => {
             padding: 16px 16px 0;
           `}
         >
-          ecozoic.io
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.com">Gatsby</a>
         </div>
       </Container>
     </footer>

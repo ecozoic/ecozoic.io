@@ -6,6 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import Byline from '../components/byline';
 import Container from '../components/container';
 import Layout from '../components/layout';
+import Seo from '../components/seo';
 import Subtitle from '../components/subtitle';
 import Title from '../components/title';
 
@@ -14,6 +15,11 @@ const BlogPostTemplate = (props) => {
 
   return (
     <Layout>
+      <Seo
+        title={post.title}
+        description={post.subtitle}
+        image={post.image.social.images.fallback.src}
+      />
       <Container>
         <article
           css={css`
@@ -81,6 +87,13 @@ export const pageQuery = graphql`
       }
       image {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1100)
+        social: gatsbyImageData(
+          layout: FIXED
+          width: 1200
+          height: 630
+          placeholder: NONE
+          resizingBehavior: FILL
+        )
       }
     }
   }
