@@ -1,10 +1,15 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import { css } from '@emotion/react';
 
-import useDarkMode from '../hooks/useDarkMode';
+import ColorModeContext from '../contexts/ColorModeContext';
 
 const DarkModeToggle = () => {
-  const [isDarkMode, toggleDarkMode] = useDarkMode();
+  const { colorMode, setColorMode } = useContext(ColorModeContext);
+
+  if (!colorMode) {
+    return null;
+  }
 
   return (
     <div
@@ -12,7 +17,9 @@ const DarkModeToggle = () => {
         cursor: pointer;
         user-select: none;
       `}
-      onClick={toggleDarkMode}
+      onClick={() => {
+        setColorMode(colorMode === 'dark' ? 'light' : 'dark');
+      }}
     >
       <span
         css={css`
@@ -20,7 +27,7 @@ const DarkModeToggle = () => {
         `}
         className="material-icons"
       >
-        {isDarkMode ? 'dark_mode' : 'light_mode'}
+        {colorMode === 'dark' ? 'dark_mode' : 'light_mode'}
       </span>
     </div>
   );

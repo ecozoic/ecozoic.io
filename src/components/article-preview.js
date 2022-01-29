@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { css, useTheme } from '@emotion/react';
+import { css } from '@emotion/react';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Byline from './byline';
 
 const ArticlePreview = ({ posts }) => {
-  const theme = useTheme();
-
   if (!posts || !Array.isArray(posts)) return null;
 
   return (
@@ -22,7 +20,7 @@ const ArticlePreview = ({ posts }) => {
         <li
           key={post.slug}
           css={css`
-            border: 1px solid ${theme.primaryVariantColor};
+            border: 1px solid var(--color-primary-variant);
             margin-bottom: 4rem;
           `}
         >
@@ -38,7 +36,7 @@ const ArticlePreview = ({ posts }) => {
           </Link>
           <div
             css={css`
-              color: ${theme.textColor};
+              color: var(--color-text);
               padding: 0 12px;
             `}
           >
