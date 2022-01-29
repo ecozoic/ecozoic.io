@@ -40,6 +40,10 @@ const GlobalStyles = () => (
       li {
         color: var(--color-text);
       }
+      .gatsby-resp-image-figcaption {
+        font-size: 0.9em;
+        color: var(--color-text-secondary);
+      }
     `}
   />
 );
