@@ -1,80 +1,66 @@
 import * as React from 'react';
 
-import themes from './src/themes';
+import {
+  COLOR_MODE_KEY,
+  COLORS,
+  INITIAL_COLOR_MODE_CSS_PROP,
+} from './src/constants/colors';
 
-const MagicScriptTag = () => {
-  let codeToRunOnClient = `
-  (function() {
-    function getInitialColorMode() {
-      const persistedColorPreference = window.localStorage.getItem('color-mode');
-      const hasPersistedPreference = typeof persistedColorPreference === 'string';
-    
-      if (hasPersistedPreference) {
-        return persistedColorPreference;
-      }
-    
-      const mql = window.matchMedia('(prefers-color-scheme: dark)');
-      const hasMediaQueryPreference = typeof mql.matches === 'boolean';
-    
-      if (hasMediaQueryPreference) {
-        return mql.matches ? 'dark' : 'light';
-      }
-    
-      return 'dark';
-    }
+function setColorsByTheme() {
+  const colors = '🌈';
+  const colorModeKey = '🔑';
+  const colorModeCssProp = '⚡️';
 
-    const colorMode = getInitialColorMode();
-    const root = document.documentElement;
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  const prefersDarkFromMQ = mql.matches;
+  const persistedPreference = localStorage.getItem(colorModeKey);
 
-    root.style.setProperty(
-      '--color-text',
-      colorMode === 'light'
-        ? '${themes.light.textColor}'
-        : '${themes.dark.textColor}'
-    );
+  let colorMode = 'dark';
 
-    root.style.setProperty(
-      '--color-text-secondary',
-      colorMode === 'light'
-        ? '${themes.light.secondaryTextColor}'
-        : '${themes.dark.secondaryTextColor}'
-    );
+  const hasUsedToggle = typeof persistedPreference === 'string';
 
-    root.style.setProperty(
-      '--color-background',
-      colorMode === 'light'
-        ? '${themes.light.backgroundColor}'
-        : '${themes.dark.backgroundColor}'
-    );
+  if (hasUsedToggle) {
+    colorMode = persistedPreference;
+  } else {
+    colorMode = prefersDarkFromMQ ? 'dark' : 'light';
+  }
 
-    root.style.setProperty(
-      '--color-primary',
-      colorMode === 'light'
-        ? '${themes.light.primaryColor}'
-        : '${themes.dark.primaryColor}'
-    );
+  const root = document.documentElement;
 
-    root.style.setProperty(
-      '--color-primary-variant',
-      colorMode === 'light'
-        ? '${themes.light.primaryVariantColor}'
-        : '${themes.dark.primaryVariantColor}'
-    );
+  root.style.setProperty(colorModeCssProp, colorMode);
 
-    root.style.setProperty(
-      '--color-secondary',
-      colorMode === 'light'
-        ? '${themes.light.secondaryColor}'
-        : '${themes.dark.secondaryTextColor}'
-    );
+  Object.entries(colors).forEach(([name, colorByTheme]) => {
+    const cssVarName = `--color-${name}`;
 
-    root.style.setProperty('--initial-color-mode', colorMode);
-  })();
-  `;
+    root.style.setProperty(cssVarName, colorByTheme[colorMode]);
+  });
+}
 
-  return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;
+const ThemeScript = () => {
+  const boundFn = String(setColorsByTheme)
+    .replace("'🌈'", JSON.stringify(COLORS))
+    .replace('🔑', COLOR_MODE_KEY)
+    .replace('⚡️', INITIAL_COLOR_MODE_CSS_PROP);
+
+  const calledFunction = `(${boundFn})()`;
+
+  return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
 };
 
-export const onRenderBody = ({ setPreBodyComponents }) => {
-  setPreBodyComponents(<MagicScriptTag key="theme" />);
+const FallbackStyles = () => {
+  const cssVariableString = Object.entries(COLORS).reduce(
+    (acc, [name, colorByTheme]) => {
+      return `${acc}\n--color-${name}: ${colorByTheme.dark};`;
+    },
+    ''
+  );
+
+  const wrappedInSelector = `html { ${cssVariableString} }`;
+
+  return <style>{wrappedInSelector}</style>;
+};
+
+export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
+  setHeadComponents(<FallbackStyles key="fallback-styles" />);
+  setPreBodyComponents(<ThemeScript key="theme-script" />);
 };

@@ -2,10 +2,10 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { css } from '@emotion/react';
 
-import ColorModeContext from '../contexts/ColorModeContext';
+import ThemeContext from '../contexts/ThemeContext';
 
 const DarkModeToggle = () => {
-  const { colorMode, setColorMode } = useContext(ColorModeContext);
+  const { colorMode, setColorMode } = useContext(ThemeContext);
 
   if (!colorMode) {
     return null;

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
 
-import ColorModeContextProvider from '../contexts/ColorModeContextProvider';
+import ThemeProvider from '../contexts/ThemeProvider';
 
 import Footer from './footer';
 import GlobalStyles from './global-styles';
 import Header from './header';
 
 const Layout = ({ children }) => (
-  <ColorModeContextProvider>
+  <ThemeProvider>
     <div
       id="root"
       css={css`
@@ -27,7 +27,7 @@ const Layout = ({ children }) => (
       </main>
       <Footer />
     </div>
-  </ColorModeContextProvider>
+  </ThemeProvider>
 );
 
 export default Layout;
