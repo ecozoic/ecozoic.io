@@ -17,6 +17,7 @@ const DarkModeToggle = () => {
         cursor: pointer;
         user-select: none;
       `}
+      role="button"
       onClick={() => {
         setColorMode(colorMode === 'dark' ? 'light' : 'dark');
       }}

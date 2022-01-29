@@ -20,6 +20,7 @@
     "@fontsource/inter": "^4.5.1",
     "@fontsource/material-icons": "^4.5.1",
     "dotenv": "^14.1.0",
+    "eslint-config-react-app": "^7.0.0",
     "gatsby": "^4.5.3",
     "gatsby-plugin-emotion": "^7.5.0",
     "gatsby-plugin-google-analytics": "^4.5.0",
