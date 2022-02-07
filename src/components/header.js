@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
+import { Link } from 'gatsby';
 
 import DarkModeToggle from './dark-mode-toggle';
 
@@ -19,14 +20,21 @@ const Header = () => (
       );
     `}
   >
-    <div
+    <Link
       css={css`
-        line-height: 80px;
-        margin-left: 16px;
+        border-bottom: 0;
       `}
+      to="/"
     >
-      ecozoic.io
-    </div>
+      <div
+        css={css`
+          line-height: 80px;
+          margin-left: 16px;
+        `}
+      >
+        ecozoic.io
+      </div>
+    </Link>
     <nav
       css={css`
         padding-left: 32px;
