@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { css, Global } from '@emotion/react';
 
+import { COLORS } from '../constants/colors';
+
 const GlobalStyles = () => (
   <Global
     styles={css`
@@ -43,6 +45,14 @@ const GlobalStyles = () => (
       .gatsby-resp-image-figcaption {
         font-size: 0.9em;
         color: var(--color-text-secondary);
+      }
+      .spoiler {
+        background-color: ${COLORS.background.dark};
+        color: ${COLORS.background.dark};
+        border: 1px solid ${COLORS.text.dark};
+      }
+      .spoiler:hover {
+        color: ${COLORS.text.dark};
       }
     `}
   />
