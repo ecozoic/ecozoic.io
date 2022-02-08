@@ -27,20 +27,22 @@ const GlobalStyles = () => (
         color: var(--color-text);
       }
       a {
-        border-bottom: 1px solid #da0050;
-        color: #da0050;
         transition: color 0.1s;
-        :hover {
-          border-bottom-color: transparent;
-          color: #a7003d;
-        }
       }
       .gatsby-highlight {
         margin-bottom: 1.2rem;
       }
-      div,
-      li {
+      article div,
+      article li {
         color: var(--color-text);
+      }
+      article a {
+        border-bottom: 1px solid var(--color-link-text);
+        color: var(--color-link-text);
+        :hover {
+          border-bottom-color: transparent;
+          color: var(--color-link-text-hover);
+        }
       }
       .gatsby-resp-image-figcaption {
         font-size: 0.9em;

@@ -7,8 +7,8 @@ import DarkModeToggle from './dark-mode-toggle';
 const Header = () => (
   <header
     css={css`
-      border-bottom: 1px solid var(--color-secondary);
-      color: var(--color-text);
+      border-bottom: 1px solid var(--color-tertiary);
+      color: var(--color-header-text);
       display: flex;
       height: 80px;
       width: 100%;
@@ -16,8 +16,16 @@ const Header = () => (
       background: linear-gradient(
         45deg,
         var(--color-primary),
-        var(--color-primary-variant)
+        var(--color-secondary)
       );
+
+      a {
+        color: var(--color-header-link-text);
+
+        :hover {
+          color: var(--color-header-link-text-hover);
+        }
+      }
     `}
   >
     <Link

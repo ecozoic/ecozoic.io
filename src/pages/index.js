@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { css } from '@emotion/react';
 
 import ArticlePreview from '../components/article-preview';
 import Container from '../components/container';
@@ -14,7 +15,14 @@ const IndexPage = (props) => {
     <Layout>
       <Seo title="all posts" />
       <Container>
-        <Title>Recent Posts</Title>
+        <Title
+          css={css`
+            margin-top: calc(16px + 0.6rem);
+            margin-bottom: 24px;
+          `}
+        >
+          Recent Posts
+        </Title>
         <ArticlePreview posts={posts} />
       </Container>
     </Layout>

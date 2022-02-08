@@ -1,27 +1,76 @@
+const lightGoldenrodYellow = '#F3F9D2';
+const teaGreen = '#CBEAA6';
+const yellowGreenCrayola = '#C0D684';
+const darkPurple = '#3D0B37';
+const oldMauve = '#63264A';
+
+const darkGray = '#121212';
+const white = '#f8f8f6';
+const transparentWhite = 'rgba(255, 255, 255, 0.87)';
+const black = '#000000';
+const gray = '#727275';
+const moreTransparentWhite = 'rgba(255, 255, 255, 0.6)';
+
 export const COLORS = {
   background: {
-    dark: '#121212',
-    light: '#f8f8f6',
+    dark: darkGray,
+    light: white,
   },
   text: {
-    dark: 'rgba(255, 255, 255, 0.87)',
-    light: '#000000',
+    dark: transparentWhite,
+    light: black,
   },
   'text-secondary': {
-    dark: 'rgba(255, 255, 255, 0.6)',
-    light: '#727275',
+    dark: moreTransparentWhite,
+    light: gray,
+  },
+  'link-text': {
+    dark: yellowGreenCrayola,
+    light: oldMauve,
+  },
+  'link-text-hover': {
+    dark: teaGreen,
+    light: yellowGreenCrayola,
+  },
+  'header-text': {
+    dark: transparentWhite,
+    light: transparentWhite,
+  },
+  'header-link-text': {
+    dark: transparentWhite,
+    light: transparentWhite,
+  },
+  'header-link-text-hover': {
+    dark: teaGreen,
+    light: teaGreen,
+  },
+  'footer-text': {
+    dark: transparentWhite,
+    light: transparentWhite,
+  },
+  'footer-link-text': {
+    dark: yellowGreenCrayola,
+    light: yellowGreenCrayola,
+  },
+  'footer-link-text-hover': {
+    dark: teaGreen,
+    light: teaGreen,
   },
   primary: {
-    dark: '#3700b3',
-    light: '#da0050',
-  },
-  'primary-variant': {
-    dark: '#bb86fc',
-    light: '#8e2b88',
+    dark: darkPurple,
+    light: darkPurple,
   },
   secondary: {
-    dark: '#03dac6',
-    light: '#32283c',
+    dark: teaGreen,
+    light: teaGreen,
+  },
+  tertiary: {
+    dark: yellowGreenCrayola,
+    light: darkPurple,
+  },
+  'article-preview-border': {
+    dark: moreTransparentWhite,
+    light: gray,
   },
 };
 

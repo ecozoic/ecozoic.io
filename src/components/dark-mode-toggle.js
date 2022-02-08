@@ -16,6 +16,12 @@ const DarkModeToggle = () => {
       css={css`
         cursor: pointer;
         user-select: none;
+        color: var(--color-primary);
+        transition: color 0.1s;
+
+        :hover {
+          color: var(--color-header-text);
+        }
       `}
       role="button"
       onClick={() => {

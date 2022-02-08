@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
 
-const Title = ({ children }) => (
+const Title = ({ className, children }) => (
   <h1
     css={css`
       color: var(--color-text);
@@ -11,6 +11,7 @@ const Title = ({ children }) => (
       padding-top: 0.6rem;
       margin-bottom: 0.6rem;
     `}
+    className={className}
   >
     {children}
   </h1>

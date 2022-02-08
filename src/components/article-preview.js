@@ -20,11 +20,20 @@ const ArticlePreview = ({ posts }) => {
         <li
           key={post.slug}
           css={css`
-            border: 1px solid var(--color-primary-variant);
+            border: 1px solid var(--color-article-preview-border);
             margin-bottom: 4rem;
           `}
         >
-          <Link to={post.slug}>
+          <Link
+            to={post.slug}
+            css={css`
+              color: var(--color-link-text);
+
+              :hover {
+                color: var(--color-link-text-hover);
+              }
+            `}
+          >
             <GatsbyImage image={post.image.gatsbyImageData} />
             <h2
               css={css`
