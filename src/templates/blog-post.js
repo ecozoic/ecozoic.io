@@ -9,6 +9,7 @@ import Layout from '../components/layout';
 import Markdown from '../components/markdown';
 import Seo from '../components/seo';
 import Subtitle from '../components/subtitle';
+import Tags from '../components/tags';
 import Title from '../components/title';
 
 const BlogPostTemplate = (props) => {
@@ -33,6 +34,7 @@ const BlogPostTemplate = (props) => {
               margin-bottom: 1.2rem;
             `}
           >
+            {post.tags.length > 0 && <Tags tags={post.tags} />}
             <Title>{post.title}</Title>
             <Subtitle>{post.subtitle}</Subtitle>
             <Byline
@@ -62,6 +64,7 @@ export const pageQuery = graphql`
       title
       subtitle
       updatedAt
+      tags
       author {
         name
         avatar {
