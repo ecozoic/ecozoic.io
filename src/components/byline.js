@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
+import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 const Byline = ({ author, avatar, timestamp }) => (
@@ -21,7 +22,9 @@ const Byline = ({ author, avatar, timestamp }) => (
         `}
       />
     </span>
-    <span>{author}</span>
+    <span>
+      <Link to={`/authors/${author.toLowerCase()}`}>{author}</Link>
+    </span>
     <span
       css={css`
         :before {

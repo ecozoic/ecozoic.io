@@ -25,7 +25,7 @@ const ArticlePreview = ({ posts }) => {
           `}
         >
           <Link
-            to={post.slug}
+            to={`/${post.slug}`}
             css={css`
               color: var(--color-link-text);
 
