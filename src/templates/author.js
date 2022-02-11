@@ -39,6 +39,7 @@ export const pageQuery = graphql`
           height: 630
           placeholder: NONE
           resizingBehavior: FILL
+          formats: [PNG]
         )
       }
     }
