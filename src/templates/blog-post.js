@@ -6,6 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import Byline from '../components/byline';
 import Container from '../components/container';
 import Layout from '../components/layout';
+import Markdown from '../components/markdown';
 import Seo from '../components/seo';
 import Subtitle from '../components/subtitle';
 import Title from '../components/title';
@@ -46,14 +47,7 @@ const BlogPostTemplate = (props) => {
             `}
             image={post.image.gatsbyImageData}
           />
-          <div
-            css={css`
-              font-weight: 400;
-            `}
-            dangerouslySetInnerHTML={{
-              __html: post.content?.childMarkdownRemark?.html,
-            }}
-          ></div>
+          <Markdown>{post.content?.childMdx?.body}</Markdown>
         </article>
       </Container>
     </Layout>
@@ -81,8 +75,8 @@ export const pageQuery = graphql`
         }
       }
       content {
-        childMarkdownRemark {
-          html
+        childMdx {
+          body
         }
       }
       image {

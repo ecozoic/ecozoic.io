@@ -12,6 +12,22 @@ if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
 }
 
+const gatsbyRemarkPlugins = [
+  {
+    resolve: 'gatsby-remark-images-contentful',
+    options: {
+      linkImagesToOriginal: false,
+      maxWidth: 1100,
+      showCaptions: true,
+    },
+  },
+  {
+    resolve: 'gatsby-remark-responsive-iframe',
+    options: { wrapperStyle: 'margin-bottom: 1.2rem;' },
+  },
+  'gatsby-remark-prismjs',
+];
+
 module.exports = {
   siteMetadata: {
     title: 'ecozoic.io',
@@ -22,21 +38,13 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images-contentful',
-            options: {
-              linkImagesToOriginal: false,
-              maxWidth: 1100,
-              showCaptions: true,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: { wrapperStyle: 'margin-bottom: 1.2rem;' },
-          },
-          'gatsby-remark-prismjs',
-        ],
+        plugins: gatsbyRemarkPlugins,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins,
       },
     },
     'gatsby-transformer-sharp',
