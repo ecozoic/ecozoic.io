@@ -57,6 +57,43 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+        }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              return allContentfulBlogPost.nodes.map((node) => ({
+                title: node.title,
+                description: node.subtitle,
+                url: `${site.siteMetadata.siteUrl}/${node.slug}`,
+              }));
+            },
+            query: `
+            {
+              allContentfulBlogPost(sort: { fields: [createdAt], order: DESC }) {
+                nodes {
+                  title
+                  slug
+                  subtitle
+                }
+              }
+            }`,
+            output: '/rss.xml',
+            title: 'ecozoic.io RSS Feed',
+          },
+        ],
+      },
+    },
     process.env.CONTENTFUL_HOST
       ? false
       : {
