@@ -23,7 +23,18 @@ const Byline = ({ author, avatar, timestamp }) => (
       />
     </span>
     <span>
-      <Link to={`/authors/${author.toLowerCase()}`}>{author}</Link>
+      <Link
+        css={css`
+          color: var(--color-link-text);
+
+          :hover {
+            color: var(--color-link-text-hover);
+          }
+        `}
+        to={`/authors/${author.toLowerCase()}`}
+      >
+        {author}
+      </Link>
     </span>
     <span
       css={css`
