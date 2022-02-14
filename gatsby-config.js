@@ -31,7 +31,8 @@ const gatsbyRemarkPlugins = [
 module.exports = {
   siteMetadata: {
     title: 'ecozoic.io',
-    description: 'a place about things',
+    description:
+      'ecozoic.io is a blog dedicated to gaming, movies/tv, and coding',
     siteUrl: process.env.SITE_URL,
   },
   plugins: [
